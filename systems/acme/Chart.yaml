@@ -1,5 +1,6 @@
+appVersion: 0.0.2
 description: ACME Chart
 maintainers:
 - name: Team
 name: acme
-version: "1"
+version: 0.0.2
