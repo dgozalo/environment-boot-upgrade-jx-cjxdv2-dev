@@ -1,8 +1,8 @@
 {{- if eq .Requirements.webhook "lighthouse" }}
 enabled: true
-  {{- else }}
+{{- else }}
 enabled: false
-  {{- end }}
+{{- end }}
 
 hmacToken: "{{ .Parameters.prow.hmacToken }}"
 
@@ -13,8 +13,8 @@ git:
 
 service:
   name: hook
-
-replicaCount: 1
+  
+replicaCount: 2
 
 image:
   repository: gcr.io/jenkinsxio/lighthouse
