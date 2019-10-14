@@ -60,6 +60,6 @@ storage:
     url: gs://boot-upgrade-jx-cjxdv2-repository-337e5dc9-0012-4543-98
 velero: {}
 versionStream:
-  ref: da6559ab71f927b86b8a9bd8ab6f83201d19bf54 
+  ref: 2674b25ffe5d55526a9b76e8f6c38a9a80b5106b 
   url: https://github.com/dgozalo/cloudbees-jenkins-x-versions.git
 webhook: prow
