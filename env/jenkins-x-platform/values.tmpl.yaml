@@ -1,10 +1,12 @@
+{{- if hasKey .Requirements.cluster "registry" }}
+dockerRegistry: "{{ .Requirements.cluster.registry }}"
+{{- end }}
+
+
 expose:
   enabled: false
 
 JXBasicAuth: "{{ .Parameters.adminUser.username }}:{SHA}{{ .Parameters.adminUser.password | hashPassword }}"
-
-expose:
-  enabled: false
 
 cleanup:
   enabled: false
@@ -16,7 +18,11 @@ chartmuseum:
       BASIC_AUTH_PASS: "{{ .Parameters.adminUser.password }}"
 
 nexus:
-    defaultAdminPassword: "{{ .Parameters.adminUser.password }}"
+  defaultAdminPassword: "{{ .Parameters.adminUser.password }}"
+
+jenkins:
+  Master:
+    AdminPassword: "{{ .Parameters.adminUser.password }}"
 
 PipelineSecrets:
     GitCreds: https://{{ .Parameters.pipelineUser.username }}:{{ .Parameters.pipelineUser.token }}@{{ trimPrefix "https://" .Requirements.cluster.gitServer | default "https://github.com" |  }}
@@ -116,6 +122,18 @@ PipelineSecrets:
             IdentityFile /root/.ssh-git/ssh-key
             StrictHostKeyChecking no
 
+{{- if eq .Requirements.webhook "lighthouse" }}
+controllerbuild:
+  enabled: true
+  args:
+  - "controller"
+  - "build"
+  - "--git-reporting"
+  - "--batch-mode"
+  - "--git-credentials"
+  - "--verbose"
+{{- end }}
+
 gcactivities:
   args:
     - "gc"
@@ -127,9 +145,9 @@ gcactivities:
     schedule: "0/30 * * * *"
   image:
     repository: gcr.io/jenkinsxio/builder-jx
-    tag: 0.1.686
+    tag: 0.1.658
 
 gcpods:
   cronjob:
     enabled: true
- 
+    schedule: "0/30 * * * *"
