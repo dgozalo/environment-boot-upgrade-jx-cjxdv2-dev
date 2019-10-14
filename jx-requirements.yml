@@ -1,17 +1,46 @@
 cluster:
-  clusterName: ""
-  environmentGitOwner: ""
-  project: ""
+  clusterName: boot-upgrade-jx-cjxdv2
+  environmentGitOwner: dgozalo
+  gitKind: github
+  gitName: github
+  gitServer: https://github.com
+  namespace: jx
+  project: apps-dev-229310
   provider: gke
-  zone: ""
-gitops: true
+  zone: europe-west1-c
 environments:
-- key: dev
-- key: staging
-- key: production
+- ingress:
+    domain: ""
+    externalDNS: false
+    namespaceSubDomain: ""
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: dev
+- ingress:
+    domain: ""
+    externalDNS: false
+    namespaceSubDomain: ""
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: staging
+- ingress:
+    domain: ""
+    externalDNS: false
+    namespaceSubDomain: ""
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: production
+gitops: true
 ingress:
-  domain: ""
+  domain: 35.205.175.230.nip.io
   externalDNS: false
+  namespaceSubDomain: -jx.
   tls:
     email: ""
     enabled: false
@@ -19,16 +48,20 @@ ingress:
 kaniko: true
 secretStorage: vault
 storage:
+  backup:
+    enabled: false
+    url: ""
   logs:
     enabled: true
-    url: ""
+    url: gs://boot-upgrade-jx-cjxdv2-logs-d8705c3a-a42f-4004-b5f1-862
   reports:
     enabled: true
-    url: ""
+    url: gs://boot-upgrade-jx-cjxdv2-reports-f49756e4-33d7-40f6-9e58
   repository:
     enabled: true
-    url: ""
+    url: gs://boot-upgrade-jx-cjxdv2-repository-337e5dc9-0012-4543-98
+velero: {}
 versionStream:
-  ref: 224d65a9452e04c1f8eb33f2d87db2df03a46c4d 
+  ref: 224d65a9452e04c1f8eb33f2d87db2df03a46c4d
   url: https://github.com/cloudbees/cloudbees-jenkins-x-versions.git
 webhook: prow
