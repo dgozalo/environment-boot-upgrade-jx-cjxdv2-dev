@@ -1,3 +1,4 @@
+bootConfigURL: https://github.com/dgozalo/cloudbees-jenkins-x-boot-config
 cluster:
   clusterName: boot-upgrade-jx-cjxdv2
   environmentGitOwner: dgozalo
