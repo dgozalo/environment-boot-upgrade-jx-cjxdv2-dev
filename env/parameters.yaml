@@ -1,0 +1,10 @@
+adminUser:
+  password: vault:boot-upgrade-jx-cjxdv2/adminUser:password
+  username: admin
+enableDocker: false
+pipelineUser:
+  email: dgozalo@cloudbees.com
+  token: vault:boot-upgrade-jx-cjxdv2/pipelineUser:token
+  username: dgozalo
+prow:
+  hmacToken: vault:boot-upgrade-jx-cjxdv2/prow:hmacToken
