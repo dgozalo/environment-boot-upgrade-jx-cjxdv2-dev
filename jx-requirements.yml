@@ -59,7 +59,7 @@ storage:
     enabled: true
     url: gs://boot-upgrade-jx-cjxdv2-reports-f49756e4-33d7-40f6-9e58
   repository:
-    enabled: true
+    enabled: false
     url: gs://boot-upgrade-jx-cjxdv2-repository-337e5dc9-0012-4543-98
 velero: {}
 versionStream:
