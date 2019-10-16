@@ -1,44 +1,17 @@
-bootConfigURL: https://github.com/dgozalo/cloudbees-jenkins-x-boot-config
 cluster:
   clusterName: ""
   environmentGitOwner: ""
-  environmentGitPublic: true
   project: ""
   provider: gke
-  zone: europe-west1-c
-environments:
-- ingress:
-    domain: ""
-    externalDNS: false
-    namespaceSubDomain: ""
-    tls:
-      email: ""
-      enabled: false
-      production: false
-  key: dev
-- ingress:
-    domain: ""
-    externalDNS: false
-    namespaceSubDomain: ""
-    tls:
-      email: ""
-      enabled: false
-      production: false
-  key: staging
-- ingress:
-    domain: ""
-    externalDNS: false
-    namespaceSubDomain: ""
-    tls:
-      email: ""
-      enabled: false
-      production: false
-  key: production
+  zone: ""
 gitops: true
+environments:
+- key: dev
+- key: staging
+- key: production
 ingress:
-  domain: 35.205.175.230.nip.io
+  domain: ""
   externalDNS: false
-  namespaceSubDomain: -jx.
   tls:
     email: ""
     enabled: false
@@ -46,20 +19,16 @@ ingress:
 kaniko: true
 secretStorage: vault
 storage:
-  backup:
-    enabled: false
-    url: ""
   logs:
     enabled: true
-    url: gs://boot-upgrade-jx-cjxdv2-logs-d8705c3a-a42f-4004-b5f1-862
+    url: ""
   reports:
     enabled: true
-    url: gs://boot-upgrade-jx-cjxdv2-reports-f49756e4-33d7-40f6-9e58
+    url: ""
   repository:
     enabled: true
-    url: gs://boot-upgrade-jx-cjxdv2-repository-337e5dc9-0012-4543-98
-velero: {}
+    url: ""
 versionStream:
-  ref: 8877285c4baed95783f613509a4bc0b62f45e49a 
-  url: https://github.com/dgozalo/cloudbees-jenkins-x-versions.git
+  ref: 224d65a9452e04c1f8eb33f2d87db2df03a46c4d 
+  url: https://github.com/cloudbees/cloudbees-jenkins-x-versions.git
 webhook: prow
