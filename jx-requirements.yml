@@ -1,17 +1,46 @@
+autoUpdate:
+  enabled: false
+  schedule: ""
 cluster:
-  clusterName: ""
-  environmentGitOwner: ""
-  project: ""
+  azure: {}
+  gitKind: github
+  gitName: github
+  gitServer: https://github.com
+  namespace: jx
   provider: gke
-  zone: ""
-gitops: true
 environments:
-- key: dev
-- key: staging
-- key: production
+- ingress:
+    domain: ""
+    externalDNS: false
+    namespaceSubDomain: ""
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: dev
+- ingress:
+    domain: ""
+    externalDNS: false
+    namespaceSubDomain: ""
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: staging
+- ingress:
+    domain: ""
+    externalDNS: false
+    namespaceSubDomain: ""
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: production
+gitops: true
 ingress:
   domain: ""
   externalDNS: false
+  namespaceSubDomain: -jx.
   tls:
     email: ""
     enabled: false
@@ -19,6 +48,9 @@ ingress:
 kaniko: true
 secretStorage: vault
 storage:
+  backup:
+    enabled: false
+    url: ""
   logs:
     enabled: true
     url: ""
@@ -28,7 +60,9 @@ storage:
   repository:
     enabled: true
     url: ""
+vault: {}
+velero: {}
 versionStream:
-  ref: 224d65a9452e04c1f8eb33f2d87db2df03a46c4d 
+  ref: 8877285c4baed95783f613509a4bc0b62f45e49a
   url: https://github.com/cloudbees/cloudbees-jenkins-x-versions.git
 webhook: prow
