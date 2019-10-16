@@ -1,9 +1,12 @@
 bootConfigURL: https://github.com/dgozalo/cloudbees-jenkins-x-boot-config
 cluster:
-  clusterName: ""
-  environmentGitOwner: ""
-  environmentGitPublic: true
-  project: ""
+  clusterName: boot-upgrade-jx-cjxdv2
+  environmentGitOwner: dgozalo
+  gitKind: github
+  gitName: github
+  gitServer: https://github.com
+  namespace: jx
+  project: apps-dev-229310
   provider: gke
   zone: europe-west1-c
 environments:
@@ -60,6 +63,6 @@ storage:
     url: gs://boot-upgrade-jx-cjxdv2-repository-337e5dc9-0012-4543-98
 velero: {}
 versionStream:
-  ref: 3adb108f8bc4f515369efeef778ca6ac8fc4ce54 
+  ref: 8877285c4baed95783f613509a4bc0b62f45e49a 
   url: https://github.com/dgozalo/cloudbees-jenkins-x-versions.git
 webhook: prow

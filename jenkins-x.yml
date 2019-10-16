@@ -4,7 +4,7 @@ pipelineConfig:
     pullRequest:
       pipeline:
         agent:
-          image: gcr.io/jenkinsxio/builder-go
+          image: gcr.io/jenkinsxio/builder-go:2.0.861-216
         stages:
         - name: pr-checks
           steps:
@@ -15,7 +15,7 @@ pipelineConfig:
             - verify
             - values
             - --values-file=parameters.yaml
-            - --schema-file=parameters.tmp.schema.json
+            - --schema-file=parameters.tmpl.schema.json
             dir: /workspace/source/env
           - name: lint-env-helm
             command: make
@@ -25,7 +25,7 @@ pipelineConfig:
     release:
       pipeline:
         agent:
-          image: gcr.io/jenkinsxio/builder-go
+          image: gcr.io/jenkinsxio/builder-go:2.0.861-216
         environment:
         - name: DEPLOY_NAMESPACE
           value: jx
